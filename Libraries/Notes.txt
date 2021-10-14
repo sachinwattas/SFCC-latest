@@ -1,0 +1,52 @@
+Command To run scripts
+
+
+
+Parallel run commands
+pabot --processes 2 --outputdir Results  TestSuite/Functional/*-Runner.robot
+
+
+Check list of emulators
+~/Library/Android/sdk/tools/emulator -list-avds
+
+launch emulators
+~/Library/Android/sdk/emulator/emulator -avd Pixel_3a_API_28
+
+
+iphone simulator
+/Users/krishna/Desktop/krishna/IOS/build/Release-iphonesimulator/IOS.app
+
+
+
+How to get element properties value
+Get Element Attribute  command to retrieve properties value like innerHTML innerText outerText textContent etc.
+
+ex:
+    ${inner html}=    Get Element Attribute    ${GiveUsACallLocator}    innerHTML
+    log  ${inner html}
+
+
+how to get computed value using CSS element
+    like getting height , background color
+
+ex:
+    ${elem}    Get Webelement    ${slide1-NeedsAndGoals-LeftTopButtonIcon}
+    ${bgHeight}    Call Method    ${elem}    value_of_css_property     height
+    set suite variable  ${bgHeight}    ${bgHeight}
+    log    ${bgHeight}
+
+
+Command to run particular test case in a file/suite
+ -i <testcase name>
+
+ example
+  robot -d Results -i DBP-238 /Users/krishna/PycharmProjects/SFCC1/TestSuite/Functional/DBP-238/CountrySelection-Run.robot
+
+
+to validate relative url
+    ${url}    get location
+    Should Be True      '${contactUsPageUrl}' in '${url}'
+
+
+Upgarde the driver then need to run
+webdrivermanager chrome --linkpath /usr/local/bin
